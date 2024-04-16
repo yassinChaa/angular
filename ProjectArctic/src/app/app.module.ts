@@ -10,6 +10,10 @@ import { ResidenceComponent } from './residence/residence.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { DetailProductComponent } from './detail-product/detail-product.component';
+import { FormResidenceComponent } from './form-residence/form-residence.component';
+import { FormAppartementComponent } from './form-appartement/form-appartement.component';
+import { ApartementsComponent } from './apartements/apartements.component';
+import { DetailAppartmentComponent } from './detail-appartment/detail-appartment.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +24,10 @@ import { DetailProductComponent } from './detail-product/detail-product.componen
     NavbarComponent,
     NotfoundComponent,
     DetailProductComponent,
+    FormResidenceComponent,
+    FormAppartementComponent,
+    ApartementsComponent,
+    DetailAppartmentComponent,
   ],
   imports: [
     BrowserModule,
