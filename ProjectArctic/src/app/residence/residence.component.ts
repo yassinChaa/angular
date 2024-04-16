@@ -8,6 +8,10 @@ import { Apartment } from '../model/appartement';
   styleUrls: ['./residence.component.css']
 })
 export class ResidenceComponent {
+  listFav:Apartment[]=[];
+      listApp:Apartment[]=[];
+
+      searchSurface !: number
   listResidences:Residence[]=[
     {id:1,"name": "El fel","address":"Borj Cedria",
     "image":"../../assets/images/R1.jpeg"},
@@ -29,18 +33,13 @@ listApartments:Apartment[]=[
     showApartments(residenceId: number) {
       this.selectedApartments = this.listApartments.filter(apartment => apartment.residence.id === residenceId);
      }
-    like(id:number){}
     favorites: Apartment[] = [];
     message: string = ""; // Variable to hold messages
 
-      addToFavorites(apartment: Apartment) {
-        if (!this.favorites.includes(apartment)) {
-          this.favorites.push(apartment);
-          this.message = "Apartment added to favorites: " + apartment.description;
-        } else {
-          this.message = "Apartment is already in favorites: " + apartment.description;
-        }
-      }    
-      searchSurface !: number
+      fav(a:Apartment){
+        this.listFav.push(a);
+        console.log(this.fav);
+        
+      }
 
     }

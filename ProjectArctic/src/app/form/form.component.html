@@ -1,0 +1,57 @@
+<p>form works!</p>
+<h2>
+   -------------- formControl-----------
+</h2>
+<label>Login</label>
+<input type="text" [formControl]="login">
+
+
+<label>Password</label>
+<input type="text"[formControl]="pwd">
+<input type="submit" value="save"(click)="save()"[disabled]="login.invalid|| pwd.invalid" >
+<h2>
+   ----------------- formGroup-------------
+</h2>
+<form [formGroup]="RegisterForm">
+<h5>Nom</h5>
+<input class="form-control" type="text" formControlName="nom">
+
+<div class="alert alert-danger" *ngIf="RegisterForm.get('nom')?.hasError('required') && this.RegisterForm.controls['nom'].touched">
+    Le champ nom est obligatoire.
+  </div>
+  <div class="alert alert-danger" *ngIf="RegisterForm.get('nom')?.hasError('minlength')">
+    Le champ nom doit contenir au moins 6 caractères.
+  </div>
+
+
+<h5>Prenom</h5>
+<input class="form-control"  type="text" formControlName="prenom">
+<div class="alert alert-danger" *ngIf="RegisterForm.get('prenom')?.hasError('required') && this.RegisterForm.controls['prenom'].touched">
+    Le champ prenom est obligatoire.
+  </div>
+  <div class="alert alert-danger" *ngIf="RegisterForm.get('prenom')?.hasError('minlength')">
+    Le champ prenom doit contenir au moins 6 caractères.
+  </div>
+
+<h5>Email</h5>
+<input  class="form-control" type="text" formControlName="email">
+<div class="alert alert-danger" *ngIf="RegisterForm.get('email')?.hasError('required')&& this.RegisterForm.controls['email'].touched">
+    Le champ Email est obligatoire.
+  </div>
+  <div class="alert alert-danger" *ngIf="RegisterForm.get('email')?.hasError('email')">
+    Le champ email doit etre un email @ oublié.
+  </div>
+
+
+<h5>Tel</h5>
+<input  class="form-control" type="text"formControlName="tel">
+<div class="alert alert-danger" *ngIf="RegisterForm.get('tel')?.hasError('required')&& this.RegisterForm.controls['tel'].touched">
+    Le champ tel est obligatoire.
+  </div>
+  <div class="alert alert-danger" *ngIf="RegisterForm.get('tel')?.hasError('pattern')">
+    Le champ tel doit contenir au moins 8 chiffres.
+  </div>
+
+<input type="submit" value="save"(click)="test()"[disabled]="RegisterForm.invalid" >
+
+</form>

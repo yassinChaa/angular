@@ -9,6 +9,7 @@ import { ApartementsComponent } from './apartements/apartements.component';
 import { FormResidenceComponent } from './form-residence/form-residence.component';
 import { FormAppartementComponent } from './form-appartement/form-appartement.component';
 import { DetailAppartmentComponent } from './detail-appartment/detail-appartment.component';
+import { FormComponent } from './form/form.component';
 
 const routes: Routes = [
 
@@ -19,9 +20,11 @@ const routes: Routes = [
   {path:'apartment',component:ApartementsComponent},
 
   { path: 'addResidence', component: FormResidenceComponent },
-  { path: 'apartments/:residenceId', component: ApartementsComponent },
-  { path: 'addApartment', component: FormAppartementComponent},
+  {path : 'apartement/:id', component: ApartementsComponent},
+    { path: 'addApartment', component: FormAppartementComponent},
   { path: 'apartmentDetails/:id', component: DetailAppartmentComponent }, 
+  {path:'login',component:FormComponent},
+
    {path:'detail/:id',component:DetailProductComponent},
 
   {path :'**',component:NotfoundComponent}
