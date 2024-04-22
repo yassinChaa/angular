@@ -6,5 +6,7 @@
     <li class="list-group-item ">
         {{r.id}} {{r.name}} {{r.address}}
         <button [routerLink]="['/apartement',r.id]" class="btn btn-info "> Show Appart</button>
+        <button [routerLink]="['/addApartment',r.id]" class="btn btn-info "> Ajouter Appart</button>
+
     </li>
 </ul>

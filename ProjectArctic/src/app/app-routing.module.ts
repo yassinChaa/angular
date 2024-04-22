@@ -21,7 +21,7 @@ const routes: Routes = [
 
   { path: 'addResidence', component: FormResidenceComponent },
   {path : 'apartement/:id', component: ApartementsComponent},
-    { path: 'addApartment', component: FormAppartementComponent},
+    { path: 'addApartment/:id', component: FormAppartementComponent},
   { path: 'apartmentDetails/:id', component: DetailAppartmentComponent }, 
   {path:'login',component:FormComponent},
 

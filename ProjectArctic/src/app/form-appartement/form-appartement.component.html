@@ -1,1 +1,87 @@
 <p>form-appartement works!</p>
+<form [formGroup]="RegisterForm">
+
+    <h5>Apartment Number</h5>
+    <input type="text" placeholder="Apartment Number" formControlName="ApartmentNumber">
+    <div *ngIf="RegisterForm.get('ApartmentNumber')?.invalid && (RegisterForm.get('ApartmentNumber')?.dirty || RegisterForm.get('ApartmentNumber')?.touched)">
+        <div class="alert alert-danger"  *ngIf="RegisterForm.get('ApartmentNumber')?.hasError('required')">Apartment Number is required.</div>
+        <div class="alert alert-danger"  *ngIf="RegisterForm.get('ApartmentNumber')?.hasError('pattern')">Apartment Number must be a number</div>
+    </div>
+
+    <h5>Floor Number</h5>
+    <input type="text" placeholder="Floor Number" formControlName="FloorNumber">
+    <div *ngIf="RegisterForm.get('FloorNumber')?.invalid && (RegisterForm.get('FloorNumber')?.dirty || RegisterForm.get('FloorNumber')?.touched)">
+        <div class="alert alert-danger"  *ngIf="RegisterForm.get('FloorNumber')?.hasError('required')">Floor Number is required.</div>
+        <div class="alert alert-danger"  *ngIf="RegisterForm.get('FloorNumber')?.hasError('pattern')">Floor Number must be  a number.</div>
+    </div>
+
+    <h5>Surface</h5>
+    <input type="text" placeholder="Surface" formControlName="Surface">
+    <div class="alert alert-danger"  *ngIf="RegisterForm.get('Surface')?.invalid && (RegisterForm.get('Surface')?.dirty || RegisterForm.get('Surface')?.touched)">
+        <div class="alert alert-danger"  *ngIf="RegisterForm.get('Surface')?.hasError('required')">Surface is required.</div>
+        <div class="alert alert-danger"  *ngIf="RegisterForm.get('Surface')?.hasError('pattern')">Floor Number must be  a number.</div>
+
+    </div>
+    <h5>Terrace</h5>
+    <div>
+      <label>
+        <input type="radio" formControlName="Terrace" value="yes"> Yes
+      </label>
+      <label>
+        <input type="radio" formControlName="Terrace" value="no"> No
+      </label>
+    </div>
+    <div *ngIf="RegisterForm.get('Terrace')?.invalid && (RegisterForm.get('Terrace')?.dirty || RegisterForm.get('Terrace')?.touched)">
+        <div class="alert alert-danger" *ngIf="RegisterForm.get('Terrace')?.hasError('required')">
+        Surface Terrace is required.
+      </div>
+    </div>
+    
+    <h5>Surface Terrace</h5>
+    <div *ngIf="RegisterForm.get('Terrace')?.value !== 'yes'">
+        <input type="text" placeholder="Enter Surface Terrace"  disabled>
+      </div>
+      <div *ngIf="RegisterForm.get('Terrace')?.value === 'yes'">
+        <input type="text" placeholder="Enter Surface Terrace" formControlName="SurfaceTerrace">
+          <div class="alert alert-danger" *ngIf="RegisterForm.get('SurfaceTerrace')?.hasError('pattern')&& this.RegisterForm.controls['SurfaceTerrace'].touched">
+            Le champ doit etre remplis
+          </div>
+      </div>
+      
+
+    
+    <h5>Category</h5>
+    <div>
+        <label>
+            <input type="radio" formControlName="Category" value="s+1"> S+1
+        </label>
+        <label>
+            <input type="radio" formControlName="Category" value="s+2"> S+2
+        </label>
+        <label>
+            <input type="radio" formControlName="Category" value="s+3"> S+3
+        </label>
+    </div>
+    
+    <div *ngIf="RegisterForm.get('Category')?.invalid && (RegisterForm.get('Category')?.dirty || RegisterForm.get('Category')?.touched)">
+        <div *ngIf="RegisterForm.get('Category')?.hasError('required')">Category is required.</div>
+    </div>
+    
+
+    <h5>Description</h5>
+    <textarea placeholder="Description" formControlName="Description"></textarea>
+    <div *ngIf="RegisterForm.get('Description')?.invalid && (RegisterForm.get('Description')?.dirty || RegisterForm.get('Description')?.touched)">
+        <div class="alert alert-danger" *ngIf="RegisterForm.get('Description')?.hasError('minlength')">
+            Le champ description doit contenir au moins 10 caractères.
+          </div>
+    </div>
+<h5>Residence</h5>
+<input type="text" placeholder="Residence" formControlName="Residence">
+<div *ngIf="RegisterForm.get('Residence')?.invalid && (RegisterForm.get('Residence')?.dirty || RegisterForm.get('Residence')?.touched)">
+  <div *ngIf="RegisterForm.get('Residence')?.hasError('required')">Residence is required.</div>
+</div>
+
+
+    <input type="submit" value="add"(click)="test()"[disabled]="RegisterForm.invalid" >
+
+</form>
