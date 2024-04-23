@@ -15,7 +15,8 @@ import { FormAppartementComponent } from './form-appartement/form-appartement.co
 import { ApartementsComponent } from './apartements/apartements.component';
 import { DetailAppartmentComponent } from './detail-appartment/detail-appartment.component';
 import { FormComponent } from './form/form.component';
-
+import { AddProductComponent } from './add-product/add-product.component';
+import{HttpClientModule} from  '@angular/common/http'
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,12 +31,14 @@ import { FormComponent } from './form/form.component';
     ApartementsComponent,
     DetailAppartmentComponent,
     FormComponent,
+    AddProductComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

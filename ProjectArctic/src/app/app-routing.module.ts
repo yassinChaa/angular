@@ -10,6 +10,8 @@ import { FormResidenceComponent } from './form-residence/form-residence.componen
 import { FormAppartementComponent } from './form-appartement/form-appartement.component';
 import { DetailAppartmentComponent } from './detail-appartment/detail-appartment.component';
 import { FormComponent } from './form/form.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 const routes: Routes = [
 
@@ -24,6 +26,7 @@ const routes: Routes = [
     { path: 'addApartment/:id', component: FormAppartementComponent},
   { path: 'apartmentDetails/:id', component: DetailAppartmentComponent }, 
   {path:'login',component:FormComponent},
+  { path: 'addProduct', component: AddProductComponent},
 
    {path:'detail/:id',component:DetailProductComponent},
 

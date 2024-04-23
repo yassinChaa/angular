@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { Product } from '../model/product';
+import { ProductService } from '../services/product.service';
+import { CalculService } from '../services/calcul.service';
+import { ConsumerProductService } from '../services/consumer-product.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product',
@@ -7,10 +11,7 @@ import { Product } from '../model/product';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent {
-listProduct :  Product[] =[
-{id:1,title:'product',price:1500,quantity:10,like:0},
-{id:2,title:'product2',price:1000,quantity:10,like:0},
-{id:3,title:'product3',price:2000,quantity:10,like:0}]
+  listProduct :  Product[]=[]
 increment(id:number){
  this.listProduct[id].like++
 }
@@ -20,4 +21,12 @@ increment2(p:Product){
   p.like++
  }
  priceMax!:number
+ alert!:number
+ constructor(private ps:ProductService,private cl:CalculService,private cons :ConsumerProductService){}
+id!:number
+ ngOnInit(){
+  //this.listProduct=this.ps.listProduct;
+  //this.alert=this.cl.stat(this.listProduct,'quantity',0)
+this.cons.getProduct().subscribe(data=>this.listProduct=data)
+ }
 }

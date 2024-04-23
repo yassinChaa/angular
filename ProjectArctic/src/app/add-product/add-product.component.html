@@ -1,0 +1,47 @@
+<p>add-product works!</p>
+<form [formGroup]="RegisterForm">
+<h5>id</h5>
+<input class="form-control" type="text" formControlName="id">
+<div class="alert alert-danger" *ngIf="RegisterForm.get('id')?.hasError('required') && this.RegisterForm.controls['id'].touched">
+    Le champ id est obligatoire.
+  </div>
+ 
+<h5>title</h5>
+<input class="form-control"  type="text" formControlName="title">
+<div class="alert alert-danger" *ngIf="RegisterForm.get('title')?.hasError('required') && this.RegisterForm.controls['title'].touched">
+    Le champ title est obligatoire.
+  </div>
+  <div class="alert alert-danger" *ngIf="RegisterForm.get('title')?.hasError('minlength')">
+    Le champ title doit contenir au moins 6 caractères.
+  </div>
+
+
+
+
+<h5>Price</h5>
+<input  class="form-control" type="text"formControlName="price">
+<div class="alert alert-danger" *ngIf="RegisterForm.get('price')?.hasError('required')&& this.RegisterForm.controls['price'].touched">
+    Le champ price est obligatoire.
+  </div>
+  <div class="alert alert-danger" *ngIf="RegisterForm.get('price')?.hasError('pattern')">
+    Le champ price doit contenir des chiffres.
+  </div>
+  <h5>quantity</h5>
+<input  class="form-control" type="text"formControlName="quantity">
+<div class="alert alert-danger" *ngIf="RegisterForm.get('quantity')?.hasError('required')&& this.RegisterForm.controls['quantity'].touched">
+    Le champ quantity est obligatoire.
+  </div>
+  <div class="alert alert-danger" *ngIf="RegisterForm.get('quantity')?.hasError('pattern')">
+    Le champ quantity doit contenir des chiffres.
+  </div>
+
+
+  <h5>like</h5>
+  <input  class="form-control" type="text"formControlName="like" >
+  <div class="alert alert-danger" *ngIf="RegisterForm.get('like')?.hasError('required')&& this.RegisterForm.controls['like'].touched" >
+      Le champ like est obligatoire.
+    </div>
+  
+<input type="submit" value="save"(click)="save()"[disabled]="RegisterForm.invalid" >
+
+</form>
