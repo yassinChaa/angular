@@ -29,4 +29,9 @@ id!:number
   //this.alert=this.cl.stat(this.listProduct,'quantity',0)
 this.cons.getProduct().subscribe(data=>this.listProduct=data)
  }
+ delete(id :number){
+  this.cons.DeleteProduct(id).subscribe(
+    ()=>this.ngOnInit()
+  )
+ }
 }

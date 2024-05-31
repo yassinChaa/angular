@@ -16,7 +16,8 @@ import { ApartementsComponent } from './apartements/apartements.component';
 import { DetailAppartmentComponent } from './detail-appartment/detail-appartment.component';
 import { FormComponent } from './form/form.component';
 import { AddProductComponent } from './add-product/add-product.component';
-import{HttpClientModule} from  '@angular/common/http'
+import{HttpClientModule} from  '@angular/common/http';
+import { UpdateProductComponent } from './update-product/update-product.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +33,7 @@ import{HttpClientModule} from  '@angular/common/http'
     DetailAppartmentComponent,
     FormComponent,
     AddProductComponent,
+    UpdateProductComponent,
   ],
   imports: [
     BrowserModule,

@@ -35,5 +35,6 @@ export class FormAppartementComponent {
   test(){
     console.log(this.RegisterForm);
   }
+  
   }
 

@@ -25,6 +25,8 @@ La quantite des produits egale a 0 est :{{alert}}
     <td> <button [disabled]="p.quantity==0" (click)="buy(i)" class="btn btn-primary ">Buy</button> </td>
    <!--- <td> <button (click)="increment2(p)" class="btn btn-primary ">like</button> </td>-->
 <td> <button [routerLink]="['/detail',p.id]">detail</button></td>
+<td> <button  class="btn btn-danger" (click)="delete(i)">Delete</button> </td>
+
 </ng-container>
 
 
